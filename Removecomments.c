@@ -75,5 +75,3 @@ void is_comment(FILE *input,FILE *output)
 	        }//if
 	}
 }
-
-	
