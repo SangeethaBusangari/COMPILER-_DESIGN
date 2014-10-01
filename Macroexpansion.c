@@ -41,7 +41,7 @@ void macro_replace(FILE *input,FILE *output)
 				fputc(c,output);
 			}
 			len=strlen(buf);
-			buf[len+1]='\0';
+			buf[len+1]='\0';//found that #define is availble in program
 			//printf("\n");
 			c=fgetc(input);	
 			if(c==' ')
@@ -60,7 +60,7 @@ void macro_replace(FILE *input,FILE *output)
 			}while((c=fgetc(input))!=' ');
 			m[j]='\0';
 			//printf(" m is %s\n ",m);
-			len1=strlen(m);
+			len1=strlen(m); //macro identifier is identified
 			printf("\n");
 			do
 			{	fputc(c,output);
@@ -76,7 +76,7 @@ void macro_replace(FILE *input,FILE *output)
 			fputc('\n',output);
 			t[k]='\0';
 			//printf(" t is %s\n ",t);
-			//printf("\n");
+			//printf("\n");//token sequence for macro identifer
 			while(c!=EOF)
 			{
 				for(i=0;i<len1;i++)
@@ -86,7 +86,7 @@ void macro_replace(FILE *input,FILE *output)
 					{
 						temp[i]=t[i];
 						
-						fputc(temp[i],output);		
+						fputc(temp[i],output);		//replacing  macro identifier with it tokensequence.
 						//printf("%c",temp[i]);
 					}
 					else
